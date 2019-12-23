@@ -7,7 +7,10 @@ module.exports = {
     tweet.set({ likes: tweet.likes + 1 });
 
     await tweet.save();
-    
+
+    // This emit a message to every user connected to the app!
+    req.io.emit('like', tweet);
+
     return res.json(tweet);
   }
 };

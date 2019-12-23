@@ -1,5 +1,6 @@
 const mogoose = require('mongoose');
 
+// Schema which the data base will use!
 const TweetSchema = new mogoose.Schema({
   author: String,
   content: String,
@@ -13,4 +14,5 @@ const TweetSchema = new mogoose.Schema({
   }
 });
 
+// Create and export the Schema Model!
 module.exports = mogoose.model('Tweet', TweetSchema);
