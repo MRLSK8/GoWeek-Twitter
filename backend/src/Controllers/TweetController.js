@@ -13,5 +13,17 @@ module.exports = {
     req.io.emit('tweet', tweet);
 
     return res.json(tweet);
-  }
+  },
+
+  async delete(req, res) {
+    await Tweet.deleteOne({_id: req.params.id});
+
+    return res.json("Tweet deleted!");
+  },
+
+  async uptade(req, res) {
+    await Tweet.updateOne({_id: req.params.id}, {author: req.body.author, content: req.body.content});
+
+    return res.json('Tweet updated!');
+  },
 };
